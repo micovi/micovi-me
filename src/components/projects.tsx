@@ -1,14 +1,5 @@
 import React from "react";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import {
-  IconArrowWaveRightUp,
-  IconBoxAlignRightFilled,
-  IconBoxAlignTopLeft,
-  IconClipboardCopy,
-  IconFileBroken,
-  IconSignature,
-  IconTableColumn,
-} from "@tabler/icons-react";
 import Image from "next/image";
 
 function StakingSkeleton({
@@ -22,7 +13,7 @@ function StakingSkeleton({
     <div className="relative h-full w-full">
       <Image
         src={`/${image}.png`}
-        alt="Staking.01node.com"
+        alt="project screenshot"
         fill={true}
         className="rounded-xl"
         style={{ objectFit: fit }}
@@ -40,12 +31,13 @@ export function Projects() {
       <BentoGrid>
         {items.map((item, i) => (
           <BentoGridItem
-            key={i}
+            key={item.title}
             title={item.title}
             description={item.description}
             header={item.header}
             skills={item.skills}
             className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+            link={item.link}
           />
         ))}
       </BentoGrid>
@@ -53,16 +45,39 @@ export function Projects() {
   );
 }
 
-const Skeleton = () => (
-  <div className="flex h-full min-h-[6rem] w-full flex-1 rounded-xl bg-gradient-to-br from-neutral-200 to-neutral-100 dark:from-neutral-900 dark:to-neutral-800"></div>
-);
-
 const items = [
   {
-    title: "iykyk",
-    description: "Tendermint React Hooks for easy blockchain integration.",
-    header: <StakingSkeleton image="iykyk" fit="cover" />,
-    skills: ["TypeScript", "React"],
+    title: "CoinMaker",
+    description:
+      "Create and list a coin on AO Network in minutes. Deploy Liquidity Pools and Lock Liquidity with ease.",
+    link: "https://coin.arweave.net/",
+    header: <StakingSkeleton image="coinmaker" fit="cover" />,
+    skills: ["React", "Lua", "Arweave"],
+  },
+  {
+    title: "TockenLocker",
+
+    description:
+      "TokenLocker is a process that can take up any Token and hold it for an amount of time defined by the user that sends them.",
+    header: <StakingSkeleton image="tokenlocker" fit="cover" />,
+    skills: ["Lua", "Arweave", "AO"],
+  },
+  {
+    title: "create-ao-dapp",
+    description:
+      "Effortlessly launch your fullstack permadApp with one command and unlock limitless potential of AO and Arweave",
+      link: "https://create-ao-dapp.arweave.net/",
+    header: <StakingSkeleton image="create-ao-dapp" fit="cover" />,
+    skills: ["CLI", "AO"],
+  },
+  {
+    title: "Faucetino",
+    description:
+      "Welcome to the ultimate faucet service, your one-stop destination for testnet tokens across multiple blockchains. Dive into testing without the wait.",
+    link: "https://faucetino.01node.com/",
+    header: <StakingSkeleton image="faucetinos" fit="cover" />,
+    slug: "faucetino",
+    skills: ["Design", "NextJS", "TypeScript", "NestJS", "Solidity"],
   },
   {
     title: "e-Staking",
@@ -76,6 +91,7 @@ const items = [
     description:
       "VanityForge is a powerful CLI tool designed for generating Tendermint Chains vanity addresses with efficiency and ease.",
     header: <StakingSkeleton image="vanity-forge" fit="cover" />,
+    link: "https://github.com/01node/vanity-forge",
     slug: "vanity-forge",
     skills: ["Go", "Tendermint", "CLI"],
   },
@@ -83,6 +99,7 @@ const items = [
     title: "Staking.01node.com",
     description:
       "Stake Ethereum, Secure the future, Earn Rewards - All in one platform. Staking pool uses the innovative SSV technology to ensure that your Ethereum is always safe and that you earn maximum rewards.",
+    link: "https://staking.01node.com/",
     header: <StakingSkeleton image="staking" fit="cover" />,
     skills: ["Design", "NextJS", "Go", "Solidity", "TypeScript"],
   },
@@ -101,12 +118,10 @@ const items = [
     skills: ["Vue", "TypeScript", "Docker"],
   },
   {
-    title: "Faucetino",
-    description:
-      "Welcome to the ultimate faucet service, your one-stop destination for testnet tokens across multiple blockchains. Dive into testing without the wait.",
-    header: <StakingSkeleton image="faucetino" fit="cover" />,
-    slug: "faucetino",
-    skills: ["Design", "NextJS", "TypeScript", "NestJS", "Solidity"],
+    title: "iykyk",
+    description: "Tendermint React Hooks for easy blockchain integration.",
+    header: <StakingSkeleton image="iykyk" fit="cover" />,
+    skills: ["TypeScript", "React"],
   },
   {
     title: "ZILCLI",

@@ -12,7 +12,24 @@ type WorkObject = {
 const work: WorkObject[] = [
   {
     title: "Full Stack Developer",
-    period: "Mar 2023 - Present",
+    period: "Apr 2024 - present",
+    company: "freelancer",
+    location: "remote",
+    description: "",
+    skills: [
+      "TypeScript",
+      "React",
+      "NextJS",
+      "Solidity",
+      "viem",
+      "wagmi",
+      "Lua",
+      "openai",
+    ],
+  },
+  {
+    title: "Full Stack Developer (Contractor)",
+    period: "Mar 2023 - Apr 2024",
     company: "01Node",
     location: "remote",
     description: "",
@@ -64,7 +81,7 @@ const work: WorkObject[] = [
     ],
   },
   {
-    title: "Full Stack Developer",
+    title: "Full Stack Developer (Contractor)",
     period: "Jan 2019 - Sep 2020",
     company: "01Node",
     location: "Bucharest, Romania",
@@ -93,8 +110,8 @@ export default function Work() {
       </h1>
 
       <div className="flex max-w-4xl flex-col gap-8">
-        {work.map((w) => (
-          <div>
+        {work.map((w, index) => (
+          <div key={`${w.company}-${index}`}>
             <h2 className="text-2xl font-bold">{w.title}</h2>
             <div className="flex gap-2 text-xl">
               <span className="text-white">{w.company}</span>
@@ -103,10 +120,11 @@ export default function Work() {
             <div className="text-white/50">{w.period}</div>
             <p className="mt-4 font-mono">{w.description}</p>
 
-            <div className="mt-4 flex gap-2">
-              {w.skills.map((s) => (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {w.skills.map((s, index) => (
                 <Badge
                   variant={hotSkills.includes(s) ? "default" : "secondary"}
+                  key={`${s}-${index}`}
                 >
                   {s}
                 </Badge>

@@ -42,7 +42,7 @@ export default function TopBar() {
          Get started by editing&nbsp;
          <code className="font-mono font-bold">src/app/page.tsx</code>
        </p> */}
-      <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center gap-8 bg-gradient-to-t from-white via-white lg:static lg:h-auto lg:w-auto lg:bg-none dark:from-black dark:via-black">
+      <div className="fixed bottom-3 left-0 flex h-48 w-full items-end justify-center gap-8 bg-gradient-to-t from-white via-white lg:static lg:h-auto lg:w-auto lg:bg-none dark:from-black dark:via-black">
         {navigation.map((item) => (
           <Link
             href={item.link}
